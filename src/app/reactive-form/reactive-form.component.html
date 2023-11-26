@@ -1,0 +1,33 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <label>FirstName</label>
+    <input class="form-control" type="text" formControlName="firstname" placeholder="firstName">
+    <br>
+
+    <div *ngIf="registerForm.controls['firstname'].errors
+    && registerForm.controls['firstname'].touched">
+        <div class="alert alert-danger" *ngIf="registerForm.controls['firstname'].hasError('required')">
+            the firstName is a required field
+        </div>
+
+        <div class="alert alert-danger" *ngIf="registerForm.controls['firstname'].hasError('minlength')">
+            the firstName minLength is 3
+        </div>
+    </div>
+
+    <label>LastName</label>
+    <input class="form-control" type="text" formControlName="lastname" placeholder="lastname">
+
+    <div class="alert alert-danger" *ngIf="registerForm.get('lastname')?.errors">
+        the LastName is a required field
+    </div>
+    <h3>Adress</h3>
+    <div formGroupName="adress">
+        <label>Stret</label>
+        <input type="text" formControlName="street" placeholder="street">
+        <br>
+        <label>city</label>
+        <input type="text" formControlName="city" placeholder="city">
+    </div>
+    <br>
+    <button class="btn btn-info" type="submit" [disabled]="registerForm.invalid">submit</button>
+</form>

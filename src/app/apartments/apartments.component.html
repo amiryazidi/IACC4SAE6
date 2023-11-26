@@ -1,0 +1,20 @@
+<div *ngIf="list && list.length!=0">
+    <table class="table">
+        <tr>
+            <th>appartNum</th>
+            <th>floorNum</th>
+            <th>surface</th>
+            <th>terrace</th>
+            <th>category</th>
+        </tr>
+        <tr *ngFor="let A of list">
+            <td>{{A.appartNum}}</td>
+            <td>{{A.floorNum}}</td>
+            <td>{{A.surface}}</td>
+            <td>{{A.terrace}}</td>
+            <td>{{A.category}}</td>
+            <td> <button (click)="likeApp(A.id)">Like</button></td>
+
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,30 @@
+<p>test works!</p>
+
+{{title}}
+
+<input type="number" [(ngModel)]="price">
+<table class="table" border="2">
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>price</th>
+        <th>like</th>
+        <th>quantity</th>
+    </tr>
+
+    <tr *ngFor="let product of listProduct, let i=index">
+        <ng-container *ngIf="product.price>=price || price==null">
+            <td>{{product.id}}</td>
+            <td>{{product.title}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.like}}</td>
+            <td>{{product.quantity}}</td>
+            <button class="btn btn-info" (click)="increment(i)">Like</button>
+            <button class="btn btn-danger" [disabled]="product.quantity==0">buy</button>
+            <button class="btn btn-info" [routerLink]="['/product',product.id]">show</button>
+        </ng-container>
+    </tr>
+</table>
+
+
+<input type="submit" value="event" (click)="sayHello()">
