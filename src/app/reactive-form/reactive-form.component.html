@@ -1,3 +1,18 @@
+<h1>FormControl</h1>
+
+<label>login</label>
+<input class="form-control" type="text" placeholder="login" [formControl]="login">
+
+<label>password</label>
+<input class="form-control" type="password" placeholder="password" [formControl]="password">
+<div *ngIf="password.invalid">
+    error pattern
+</div>
+
+<button class="btn btn-info" type="submit" [disabled]="login.invalid || password.invalid">submit</button>
+
+<h1>Form Group</h1>
+
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <label>FirstName</label>
     <input class="form-control" type="text" formControlName="firstname" placeholder="firstName">
@@ -17,17 +32,19 @@
     <label>LastName</label>
     <input class="form-control" type="text" formControlName="lastname" placeholder="lastname">
 
-    <div class="alert alert-danger" *ngIf="registerForm.get('lastname')?.errors">
+    <div class="alert alert-danger" *ngIf="registerForm.get('lastname')?.errors && registerForm.controls['lastname'].touched ">
         the LastName is a required field
     </div>
     <h3>Adress</h3>
     <div formGroupName="adress">
         <label>Stret</label>
-        <input type="text" formControlName="street" placeholder="street">
+        <input class="form-control" type="text" formControlName="street" placeholder="street">
         <br>
         <label>city</label>
-        <input type="text" formControlName="city" placeholder="city">
+        <input class="form-control" type="text" formControlName="city" placeholder="city">
     </div>
     <br>
     <button class="btn btn-info" type="submit" [disabled]="registerForm.invalid">submit</button>
+    <button class="btn btn-warning" type="submit" (click)="reset()">cancel</button>
+
 </form>

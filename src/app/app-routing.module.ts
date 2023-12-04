@@ -8,12 +8,17 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { DetailProductComponent } from './detail-product/detail-product.component';
 import { ApartmentsComponent } from './apartments/apartments.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { TvComponent } from './tv/tv.component';
+import { MobileComponent } from './mobile/mobile.component';
+import { AddProductComponent } from './add-product/add-product.component';
 
 const ROUTES: Routes=[
 {path:'home',component:HomeComponent},
 {path:'', redirectTo:'/home', pathMatch:'full'},
 {path:'product',component:TestComponent},
-{path:'form',component:ReactiveFormComponent},
+{path:'tv',component:TvComponent},
+{path:'phone',component:MobileComponent},
+{path:'form',component:AddProductComponent},
 {path:'showApparts/:id',component:ApartmentsComponent},
 {path:'product/:id',component:DetailProductComponent},
 {path:'residence',component:ResidencesComponent},

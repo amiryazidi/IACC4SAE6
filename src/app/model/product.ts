@@ -5,5 +5,6 @@ export class Product{
   price!: number;
   like!: number;
   quantity!: number;
+  image!:string;
 
 }
